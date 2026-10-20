@@ -1,0 +1,15 @@
+import { ArrowRight, CheckCircle2, Compass, Lightbulb, ShieldCheck, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import PageHero from "../components/PageHero";
+import SectionTitle from "../components/SectionTitle";
+
+const values = [
+  { icon: Lightbulb, title: "Innovation", text: "Explore practical ways to turn technical ideas into useful systems." },
+  { icon: ShieldCheck, title: "Engineering excellence", text: "Approach each requirement with care, clarity, and technical discipline." },
+  { icon: Compass, title: "Practical learning", text: "Connect concepts to experiments, demonstrations, and implementation." },
+  { icon: Users, title: "Collaboration", text: "Work closely with institutions and project teams to shape the right solution." }
+];
+
+export default function About() {
+  return <><PageHero eyebrow="ABOUT ARIIMA" title={<>Where engineering meets <span className="gradient-text">experience.</span></>} description="Ariima DeepTech Circle brings together laboratory engineering, embedded systems, software development, IoT, robotics, and technical education."/><section className="section"><div className="container about-layout"><div className="about-image"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85" alt="Engineering laboratory" /><div className="image-stamp">IDEAS → SYSTEMS → EXPERIENCE</div></div><div className="about-copy"><span className="eyebrow">OUR PURPOSE</span><h2>Technology should be experienced, not just explained.</h2><p>We focus on translating complex technologies into practical engineering systems, custom-built equipment, and meaningful hands-on learning experiences.</p><div className="mission-box"><b>Our mission</b><p>To bridge the gap between technology and practical application through innovative engineering solutions, advanced laboratory equipment, and accessible technical education.</p></div><div className="mission-box"><b>Our vision</b><p>To help educational institutions and industries build the capabilities needed for the next generation of engineering and technology.</p></div></div></div></section><section className="section section-services"><div className="container"><SectionTitle eyebrow="WHAT GUIDES US" title="Principles behind every project" description="Our approach is built around thoughtful design, collaboration, and practical outcomes."/><div className="value-grid">{values.map(({icon: Icon,title,text})=><article className="value-card" key={title}><span className="service-icon"><Icon/></span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section><section className="section"><div className="container process-panel"><SectionTitle eyebrow="OUR APPROACH" title="A clear path from requirement to implementation"/><div className="process-grid">{["Understand requirements","Design the solution","Integrate hardware & software","Validate functionality","Support learning & deployment"].map((s,i)=><div className="process-step" key={s}><span>0{i+1}</span><b>{s}</b></div>)}</div><Link className="button button-gradient" to="/contact">Work With Us <ArrowRight size={17}/></Link></div></section></>;
+}
